@@ -4,14 +4,16 @@
 import sublime
 import datetime
 
-from .libs import storage
+from .libs import storage, log
 
 
 def compare_ternary_array(a, b):
     for x in range(0, 3):
-        if a[x] >= b[x]:
+        if a[x] > b[x]:
             return True
-    return False
+        if a[x] < b[x]:
+            return False
+    return True
 
 
 def compare_ternary_string(a, b):
